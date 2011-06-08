@@ -1,0 +1,265 @@
+// This is the scene to produce for program #2.
+
+xres 1028	
+yres 1028
+filename "/home/beast/Desktop/daray/images/prog03creative.ppm"
+maxraydepth 25
+minattenuation 0.01
+
+camera pinhole {
+  eye [ -25.0, 5.0, 15.0 ]
+//	eye [ -10.0, -7.0, 5.0 ]
+  lookat [ -1.0, 0.0, 1.0 ]
+//	lookat [ 0.0, -9.0, 2.0 ]
+  up [ 0.0, 0.0, 1.0 ]
+  hfov 45.0
+}
+
+background constant {
+  color [ 0.7, 0.7, 1.0 ]
+}
+
+ambient 0.5
+
+light point {
+  position [ -20.0, 20.0, 50.0 ]
+  color [ 0.8, 0.8, 0.8 ]
+}
+//light point {
+ // position [ -10.0, 10.0, 6.0 ]
+ // color [ 0.8, 0.8, 0.7 ]
+//}
+
+define material pencilMatl1 phong {
+	color [1.0, 1.0, 0.1]
+	Kd 0.6
+	Ka 0.4
+	highlight [1.0, 1.0, 1.0]
+	exponent 100
+}
+
+define material pencilMatl2 phong {
+	color [0.7, 0.1, 0.1]
+	Kd 0.6
+	Ka 0.4
+	highlight [1.0, 1.0, 1.0]
+	exponent 100
+}
+
+define material pencilMatl3 phong {
+	color [0.05, 0.05, 0.05]
+	Kd 0.6
+	Ka 0.4
+	highlight [1.0, 1.0, 1.0]
+	exponent 100
+}
+
+scene group {
+
+  plane {
+    material phong {
+      color [ 0.1, 0.6, 0.2 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [1.0, 1.0, 1.0]
+      exponent 100
+    }
+    normal [ 0.0, 0.0, 1.0 ]
+    point [ 0.0, 0.0, 0.5 ]
+  }
+  
+//  box  {
+//  	material dielectric {
+//  		attenuation [1.0, 1.0, 1.0]
+//  		eta 2.0
+//  		exponent 100
+//  	}
+//  	corner1 [ 12.0, -2.0, 0.6 ]
+//  	corner2 [ 15.0, 2.0, 4.0 ] 
+//  }
+  
+  sphere {
+  	material dielectric {
+  		attenuation [1.0, 1.0, 1.0]
+  		eta 2.0
+  		exponent 200
+  	}
+  	center [15.5, 0.0, 2.5]
+  	radius 3.5
+  }
+  
+  sphere {
+	material metal {
+  		color [0.8, 0.7, 0.7]
+  		exponent 200
+  	}
+  	center [15.5, 0.0, 2.5]
+  	radius 0.5
+  }
+
+  heightfield {
+    material lambertian {
+      color [ 0.9, 0.9, 1.0 ]
+      Kd 0.8
+      Ka 0.2
+      //highlight [ 1.0, 1.0, 1.0 ]
+      //exponent 250
+    }
+//    file "/home/beast/Desktop/NED_27146896/ned_27146896.flt" // SLC
+//    file "/home/beast/Desktop/NED_18738363/ned_18738363.flt" // SB
+    file "/home/beast/Desktop/NED_28722267/ned_28722267.flt" // Keyston
+//	file "/home/beast/Desktop/NED_41391151/ned_41391151.flt" // Wendover
+    corner1 [ -9.0, -7.0, -1.0 ]
+    corner2 [ 9.0, 7.0, 1.0 ]
+  }
+  
+  // Pencil!
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -6.0, -8.14, 0.86 ]
+  	corner1 [ 7.0, -8.14, 0.86 ]
+  	corner2 [ -6.0, -8.34, 0.86 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -6.0, -8.0, 1.0 ]
+  	corner1 [ 7.0, -8.0, 1.0 ]
+  	corner2 [ -6.0, -8.14, .86 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -6.0, -8.0, 1.0 ]
+  	corner2 [ 7.0, -8.0, 1.0 ]
+  	corner1 [ -6.0, -8.0, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -6.0, -8.0, 1.20 ]
+  	corner2 [ 7.0, -8.0, 1.20 ]
+  	corner1 [ -6.0, -8.14, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -6.0, -8.14, 1.34 ]
+  	corner2 [ 7.0, -8.14, 1.34 ]
+  	corner1 [ -6.0, -8.34, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -6.0, -8.34, 1.34 ]
+  	corner1 [ 7.0, -8.34, 1.34 ]
+  	corner2 [ -6.0, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -6.0, -8.48, 1.0 ]
+  	corner1 [ 7.0, -8.48, 1.0 ]
+  	corner2 [ -6.0, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -6.0, -8.48, 1.0 ]
+  	corner1 [ 7.0, -8.48, 1.0 ]
+  	corner2 [ -6.0, -8.34, .86 ]
+  }
+  
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.14, 0.86 ]
+  	corner1 [ -6.0, -8.14, 0.86 ]
+  	corner2 [ -6.3, -8.34, 0.86 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.0, 1.0 ]
+  	corner1 [ -6.0, -8.0, 1.0 ]
+  	corner2 [ -6.3, -8.14, .86 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.0, 1.0 ]
+  	corner2 [ -6.0, -8.0, 1.0 ]
+  	corner1 [ -6.3, -8.0, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.0, 1.20 ]
+  	corner2 [ -6.0, -8.0, 1.20 ]
+  	corner1 [ -6.3, -8.14, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.14, 1.34 ]
+  	corner2 [ -6.0, -8.14, 1.34 ]
+  	corner1 [ -6.3, -8.34, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.34, 1.34 ]
+  	corner1 [ -6.0, -8.34, 1.34 ]
+  	corner2 [ -6.3, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.48, 1.0 ]
+  	corner1 [ -6.0, -8.48, 1.0 ]
+  	corner2 [ -6.3, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl3
+  	pointp [ -6.3, -8.48, 1.0 ]
+  	corner1 [ -6.0, -8.48, 1.0 ]
+  	corner2 [ -6.3, -8.34, .86 ]
+  }
+  
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -7.5, -8.14, 0.86 ]
+  	corner1 [ -6.3, -8.14, 0.86 ]
+  	corner2 [ -7.5, -8.34, 0.86 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -7.5, -8.0, 1.0 ]
+  	corner1 [ -6.3, -8.0, 1.0 ]
+  	corner2 [ -7.5, -8.14, .86 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -7.5, -8.0, 1.0 ]
+  	corner2 [ -6.3, -8.0, 1.0 ]
+  	corner1 [ -7.5, -8.0, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -7.5, -8.0, 1.20 ]
+  	corner2 [ -6.3, -8.0, 1.20 ]
+  	corner1 [ -7.5, -8.14, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -7.5, -8.14, 1.34 ]
+  	corner2 [ -6.3, -8.14, 1.34 ]
+  	corner1 [ -7.5, -8.34, 1.34 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -7.5, -8.34, 1.34 ]
+  	corner1 [ -6.3, -8.34, 1.34 ]
+  	corner2 [ -7.5, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl1
+  	pointp [ -7.5, -8.48, 1.0 ]
+  	corner1 [ -6.3, -8.48, 1.0 ]
+  	corner2 [ -7.5, -8.48, 1.20 ]
+  }
+  rectangle {
+  	material pencilMatl2
+  	pointp [ -7.5, -8.48, 1.0 ]
+  	corner1 [ -6.3, -8.48, 1.0 ]
+  	corner2 [ -7.5, -8.34, .86 ]
+  }
+  
+//  triangles for the top end of the pencil!
+}

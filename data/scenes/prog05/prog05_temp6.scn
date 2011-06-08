@@ -1,0 +1,79 @@
+// This is the scene to produce for program #5.
+
+xres 512
+yres 512
+filename "../images/prog05/prog05temp6.ppm"
+maxraydepth 10
+minattenuation 0.01
+
+//sampler 3 uniform sbox
+sampler 9 uniform
+filter box
+
+camera pinhole {
+  eye [ 1.0, -15.0, 4.0 ]
+  lookat [ -0.5, 0.75, 2.0 ]
+  up [ 0.0, 0.0, 1.0 ]
+  hfov 25.0
+}
+
+background constant {
+  color [ 0.0, 0.2, 0.1 ]
+}
+
+ambient 0.4
+
+light point {
+  position [ 100.0, -80.0, 100.0 ]
+  color [ 1.0, 1.0, 1.0 ]
+}
+
+scene group {
+
+  spherepolar {
+    material phongdielectricimage {
+      file "../textures/EarthMap.ppm"
+	  colormask [1.0, 1.0, 1.0]
+	  maskrange 0.1 //must be within 1.0
+	  dielectric {
+	  	attenuation [1.0, 1.0, 1.0]
+      	eta 2.15
+      	exponent 80
+	  }
+	  phong {
+		color [1.0,1.0,1.0]
+		Kd 0.6
+		Ka 0.4
+		highlight [ 0.0, 0.0, 0.0 ]
+		exponent 80		
+	  }
+    }
+    center [ -2.0, -0.5, 2.0 ]
+    radius 1.6
+
+    pole [ 0.0, -0.5, 1.0 ]
+    meridian [ 0.5, 0.5, 0.0 ]
+  }
+
+  plane {
+    material tile {
+      vector1 [ 0.5, 0.5, 0.0 ]
+      vector2[ -0.5, 0.5, 0.0 ]
+	  scale 1.0
+	  groutwidth 0.05
+      tilematerial metal {
+        color [ 0.8, 0.4, 0.4 ]
+        exponent 100
+      }
+      groutmaterial phong {
+        color [ 0.5, 0.5, 0.5 ]
+        Kd 0.6
+        Ka 0.4
+        highlight [ 1.0, 1.0, 1.0 ]
+        exponent 60
+      }
+    }
+    normal [ 0.0, 0.0, 1.0 ]
+    point [ 0.0, 0.0, -0.1 ]
+  }
+}

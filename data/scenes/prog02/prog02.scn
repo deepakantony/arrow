@@ -1,0 +1,332 @@
+// This is the scene to produce for program #2.
+
+xres 512
+yres 512
+filename "prog02.ppm"
+maxraydepth 25
+minattenuation 0.01
+
+camera pinhole {
+  eye [ 8.0, -18.0, 7.5 ]
+  lookat [ -4.7, 2.5, 1.5 ]
+  up [ 0.0, 0.0, 1.0 ]
+  hfov 15.0
+}
+
+background constant {
+  color [ 0.5, 0.2, 0.9 ]
+}
+
+ambient 0.8
+
+light point {
+  position [ 20.0, -20.0, 10.0 ]
+  color [ 1.0, 0.9, 0.2 ]
+}
+light point {
+  position [ -40.0, -30.0, 50.0 ]
+  color [ 0.3, 0.1, 0.1 ]
+}
+
+define material ringmatl phong {
+  color [ 0.9, 0.1, 0.4 ]
+  Kd 0.6
+  Ka 0.4
+  highlight [ 0.5, 1.0, 1.0 ]
+  exponent 100
+}
+
+scene group {
+
+  // Ground
+  plane {
+    material lambertian {
+      color [ 0.75, 0.85, 0.75 ]
+      Kd 0.4
+      Ka 0.1
+    }
+    normal [ 0.0, 0.0, 1.0 ]
+    point [ 0.0, 0.0, 1.5 ]
+  }
+
+  // Four dielectric blocks
+  box {
+    material dielectric {
+      eta 1.05
+      exponent 100
+    }
+    corner1 [ -4.0, -3.0, 1.51 ]
+    corner2 [ -3.8, -0.5, 2.91 ]
+  }
+  box {
+    material dielectric {
+      eta 1.55
+      exponent 100
+    }
+    corner1 [ -2.7, -3.0, 1.51 ]
+    corner2 [ -2.5, -0.5, 2.91 ]
+  }
+  box {
+    material dielectric {
+      eta 2.05
+      exponent 100
+    }
+    corner1 [ -1.4, -3.0, 1.51 ]
+    corner2 [ -1.2, -0.5, 2.91 ]
+  }
+  box {
+    material dielectric {
+      eta 2.55
+      exponent 100
+    }
+    corner1 [ -0.1, -3.0, 1.51 ]
+    corner2 [ 0.1, -0.5, 2.91 ]
+  }
+
+  // Fifteen rings in a line
+  ring {
+    material ringmatl
+    center [ -9, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -8.295, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -7.59, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -6.885, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -6.18, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -5.475, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -4.77, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -4.065, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -3.36, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -2.655, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -1.95, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -1.245, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ -0.54, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ 0.165, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ 0.87, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+  ring {
+    material ringmatl
+    center [ 1.575, 0, 1.9 ]
+    normal [ 0.2, -1.0, 0.2 ]
+    radius1 0.15
+    radius2 0.3
+  }
+
+  // A metal ball
+  sphere {
+    material metal {
+      color 0.8
+      exponent 100
+    }
+    center [ -7.0, 3.5, 2.4 ]
+    radius 1.2
+  }
+
+  // Ten colored spheres in a semicircle
+  sphere {
+    material phong {
+      color [ 0.95, 0.28, 0.27 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.55, 0.55, 1 ]
+      exponent 10
+    }
+    center [ -2.2, 3.3, 3 ]
+    radius 0.6
+  }
+  sphere {
+    material phong {
+      color [ 0.86, 0.089, 0.55 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.43, 0.73, 0.94 ]
+      exponent 12
+    }
+    center [ -2.5, 3.4, 3.5 ]
+    radius 0.57
+  }
+  sphere {
+    material phong {
+      color [ 0.64, 0.06, 0.8 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.41, 0.9, 0.79 ]
+      exponent 18
+    }
+    center [ -3, 3.3, 3.8 ]
+    radius 0.54
+  }
+  sphere {
+    material phong {
+      color [ 0.36, 0.2, 0.94 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.5, 0.99, 0.61 ]
+      exponent 28
+    }
+    center [ -3.5, 2.9, 3.9 ]
+    radius 0.51
+  }
+  sphere {
+    material phong {
+      color [ 0.14, 0.45, 0.91 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.67, 0.97, 0.46 ]
+      exponent 42
+    }
+    center [ -3.8, 2.5, 3.8 ]
+    radius 0.48
+  }
+  sphere {
+    material phong {
+      color [ 0.05, 0.72, 0.73 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.85, 0.85, 0.4 ]
+      exponent 60
+    }
+    center [ -3.9, 2, 3.4 ]
+    radius 0.45
+  }
+  sphere {
+    material phong {
+      color [ 0.14, 0.91, 0.45 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.97, 0.67, 0.46 ]
+      exponent 82
+    }
+    center [ -3.8, 1.7, 2.9 ]
+    radius 0.42
+  }
+  sphere {
+    material phong {
+      color [ 0.36, 0.94, 0.2 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.99, 0.5, 0.61 ]
+      exponent 108
+    }
+    center [ -3.4, 1.6, 2.5 ]
+    radius 0.39
+  }
+  sphere {
+    material phong {
+      color [ 0.64, 0.8, 0.06 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.9, 0.41, 0.79 ]
+      exponent 138
+    }
+    center [ -2.9, 1.7, 2.2 ]
+    radius 0.36
+  }
+  sphere {
+    material phong {
+      color [ 0.86, 0.55, 0.089 ]
+      Kd 0.7
+      Ka 0.3
+      highlight [ 0.73, 0.43, 0.94 ]
+      exponent 172
+    }
+    center [ -2.5, 2.1, 2.1 ]
+    radius 0.33
+  }
+
+  // A crystal ball
+  sphere {
+    material dielectric {
+      eta 2.4
+      exponent 1000
+    }
+    center [ -2.75, 2.0, 3.25 ]
+    radius 0.6
+  }
+
+}

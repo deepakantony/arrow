@@ -1,0 +1,78 @@
+// This is the scene to produce creative image for program #1.
+
+xres 512
+yres 512
+filename "images/test/image_1.ppm"
+
+sampler 9 uniform
+filter box
+
+camera pinhole {
+  eye [ 0.0, 15.0, -20.0 ]
+  lookat [ 0.0, 0.0, 0.0 ]
+  up [ 0.0, 1.0, 0.0 ]
+  hfov 90.0
+}
+
+background constant {
+  color [ 0.85, 0.95, 1.0 ]
+}
+
+ambient 0.4
+
+light point {
+  position [ 0.0, 40.0, 0.0 ]
+  color 0.9
+}
+light point {
+  position [ 0.0, 0.0, -40.0 ]
+  color [ 0.3, 0.1, 0.1 ]
+}
+light point {
+  position [ 0.0, 40.0, -40.0 ]
+  color [ 0.9, 0.9, 0.9 ]
+}
+
+define material diskmatlyellow lambertian {
+  color [ 0.8, 0.7, 0.1 ]
+  Kd 0.6
+  Ka 0.4
+}
+define material diskmatlred lambertian {
+  color [ 0.7, 0.0, 0.0 ]
+  Kd 0.6
+  Ka 0.4
+}
+
+define material rectmatlgreen lambertian {
+	color [ 0.4, 0.6, 0.1 ]
+	Kd 0.5
+	Ka 0.4
+}
+define material rectmatlbrown lambertian {
+	color [ 0.7, 0.4, 0.1 ]
+	Kd 0.5
+	Ka 0.4
+}
+
+scene group {
+
+	instance {
+	   object   torus {
+		material lambertian {
+			color [ 1.0, 0.0, 0.0 ]
+			Kd 0.6
+			Ka 0.4
+		}
+		center [ 0.0, 0.0, 0.0 ]
+		normal [ 0.0, -1.0, 0.0 ]
+		radius 15.0
+		tubeRadius 1.0
+		}
+		
+		//translate [0.0, 1.0, 0.0 ]
+		rotatez -45.0
+		rotatex 45.0
+	}
+ 
+}

@@ -1,0 +1,62 @@
+// This is the scene to produce for program #5.
+
+xres 512
+yres 512
+filename "../images/prog05/prog05temp1.ppm"
+maxraydepth 10
+minattenuation 0.01
+
+//sampler 3 uniform sbox
+sampler 9 uniform
+filter box
+
+camera pinhole {
+  eye [ 1.0, -15.0, 4.0 ]
+  lookat [ -0.5, 0.75, 2.0 ]
+  up [ 0.0, 0.0, 1.0 ]
+  hfov 25.0
+}
+
+background constant {
+  color [ 0.0, 0.2, 0.1 ]
+}
+
+ambient 0.4
+
+light point {
+  position [ 100.0, -80.0, 100.0 ]
+  color [ 1.0, 1.0, 1.0 ]
+}
+
+scene group {
+
+  sphere {
+    material phongimage {
+      file "../textures/land_ocean_ice_cloud_1024.ppm" sphere
+    	//pole [ 0.0, -0.4, 1.0 ]
+    	//meridian [ -1.0, -0.2, 0.0 ]
+    	
+      Kd 0.6
+      Ka 0.4
+      highlight [ 1.0, 1.0, 1.0 ]
+      exponent 80
+    }
+    center [ -2.0, -0.5, 2.0 ]
+    radius 1.6
+  }
+
+  sphere {
+    material phongimage {
+      file "../textures/land_lights_1024.ppm" sphere
+		//pole [ 0.0, -0.5, 1.0 ]	
+    	//meridian [ 0.5, 1.0, 0.0 ]
+      Kd 0.6
+      Ka 0.4
+      highlight [ 0.0, 0.0, 0.0 ]
+      exponent 80
+    }
+    center [ 0.0, 2.0, 3.5 ]
+    radius 1.6
+  }
+
+}

@@ -1,0 +1,4 @@
+#ifndef CHECKERSBOARD_H_
+#define CHECKERSBOARD_H_
+
+#endif /*CHECKERSBOARD_H_*/

@@ -1,0 +1,93 @@
+// This is the scene to produce for program #1.
+
+xres 512
+yres 512
+filename "torus.ppm"
+
+camera pinhole {
+  eye [ -20.0, 20.0, 0.0 ]
+  lookat [ 0.0, 4.0, 0.0 ]
+  up [ 0.0, 1.0, 0.0 ]
+  hfov 90.0
+}
+
+background constant {
+  color [ 0.7, 0.7, 0.1 ]
+}
+
+ambient 0.4
+
+light point {
+  position [ -40.0, 40.0, 100.0 ]
+  color 0.9
+}
+light point {
+  position [ 20.0, 40.0, 100.0 ]
+  color [ 0.3, 0.1, 0.1 ]
+}
+
+define material disk1matl lambertian {
+  color [ 1.0, 0.5, 0.5 ]
+  Kd 0.6
+  Ka 0.4
+}
+define material disk2matl lambertian {
+  color [ 0.5, 1.0, 0.5 ]
+  Kd 0.6
+  Ka 0.4
+}
+define material ringmatl lambertian {
+  color [ 0.5, 0.5, 1.0 ]
+  Kd 0.6
+  Ka 0.4
+}
+
+scene group {
+  torus {
+    material lambertian {
+      color [ 1.0, 0.0, 0.0 ]
+      Kd 0.6
+      Ka 0.4
+    }
+    center [ 0.0, 0.0, 0.0 ]
+    normal [ 0.0, -1.0, 0.0 ]
+    radius 10.0
+    tubeRadius 2.5
+  }
+  
+  disk {
+    material lambertian {
+      color [ 0.3, 0.15, 0.1 ]
+      Kd 0.6
+      Ka 0.4
+    }
+    center [ 0.0, 0.0, 0.0 ]
+    normal [ 0.0, 1.0, 0.0 ]
+    radius 10.0
+  }
+}
+
+
+
+  torus {
+    material lambertian {
+      color [ 1.0, 0.0, 0.0 ]
+      Kd 0.6
+      Ka 0.4
+    }
+    center [ 0.0, 0.0, 0.0 ]
+    normal [ 0.0, -1.0, 0.0 ]
+    radius 15.0
+    tubeRadius 1.0
+  }
+  
+  disk {
+    material lambertian {
+      color [ 0.2, 0.4, 0.1 ]
+      Kd 0.6
+      Ka 0.4
+    }
+    center [ 0.0, 0.0, 0.0 ]
+    normal [ 0.0, 1.0, 0.0 ]
+    radius 15.0
+  }

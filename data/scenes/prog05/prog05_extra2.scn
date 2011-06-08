@@ -1,0 +1,117 @@
+// This is the scene to produce creative image for program #1.
+
+xres 800
+yres 800
+filename "images/prog05/prog05_extra2.ppm"
+maxraydepth 10
+minattenuation 0.01
+
+sampler 16 jitter
+filter triangle
+
+camera pinhole {
+ eye [ 0.0, 10.0, -20.0 ] // normal view
+ lookat [ 0.0, -2.0, 0.0 ]
+  //eye [ -8.7, 3.0, 0.0 ] // metal ball view
+  //lookat [-11.7, 2.07, 0.0 ]
+  
+  //eye [ -1.7, 3.0, 16.0 ]   // through crystal
+  //lookat [ -1.7, 2.57, 11.0 ]
+  //eye [ 15.7, 3.57, 0.0 ]
+  //lookat [ 0.0, 0.07, -1.0 ]
+  up [ 0.0, 1.0, 0.0 ]
+  hfov 90.0
+}
+
+background constant {
+  color [ 0.85, 0.95, 1.0 ]
+}
+
+ambient 0.4
+
+light point {
+  position [ -40.0, 40.0, 100.0 ]
+  color 0.9
+}
+light point {
+  position [ 20.0, 40.0, 100.0 ]
+  color [ 0.3, 0.1, 0.1 ]
+}
+light point {
+  position [ 0.0, 40.0, -50.0 ]
+  color [ 0.9, 0.9, 0.9 ]
+}
+
+define material diskmatlyellow phong {
+  color [ 0.8, 0.7, 0.1 ]
+  Kd 0.6
+  Ka 0.4
+  highlight [ 0.5, 1.0, 1.0 ]
+  exponent 100
+}
+define material diskmatlred phong {
+  color [0.7, 0.0, 0.0]
+  Kd 0.6
+  Ka 0.4
+  highlight [ 0.5, 1.0, 1.0 ]
+  exponent 100
+}
+
+define material rectmatlgreen metal {
+	color [ 0.4, 0.6, 0.1 ]
+	exponent 100
+}
+define material rectmatlbrown metal {
+	color [ 0.7, 0.4, 0.1 ]
+	exponent 100
+}
+
+scene group { 
+  
+  // crystal
+  spherepolar {
+    material phongdielectricimage {
+      file "textures/EarthMap.ppm"
+	  colormask [1.0, 1.0, 1.0]
+	  maskrange 0.1 //must be within 1.0
+	  dielectric {
+	  	attenuation [1.0, 1.0, 1.0]
+      	eta 2.15
+      	exponent 80
+	  }
+	  phong {
+		color [1.0,1.0,1.0]
+		Kd 0.6
+		Ka 0.4
+		highlight [ 0.0, 0.0, 0.0 ]
+		exponent 80		
+	  }
+    }
+    center [ 0.0, 2.57, 3.0 ]
+    radius 10.0
+    pole [ 0.0, 1.0, 0.0 ]
+    meridian [ 0.5, 0.0, -0.10 ]
+  }
+
+  plane {
+    material checker {
+	  origin [0.0,0.0,0.0]
+      vector1 [ 0.5, 0.0, 0.5 ]
+      vector2[ -0.5, 0.0, 0.5 ]
+	  scale 8.0
+      material1 metal {
+        color [ 0.6, 0.3, 0.2 ]
+		  exponent 120
+      }
+      material2 phong {
+        color [ 0.1, 0.1, 0.1 ]
+		  Kd 0.6
+		  Ka 0.4
+		  highlight [ 1.0, 1.0, 1.0 ]
+		  exponent 120
+      }
+    }
+    normal [ 0.0, 1.0, 0.0 ]
+    point [ -11.0, -20.1, -11.0 ]
+  }
+}

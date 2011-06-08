@@ -1,0 +1,16 @@
+cmake_minimum_required (VERSION 2.6)
+project (arrow)
+
+add_subdirectory(cameras)
+add_subdirectory(lights)
+add_subdirectory(mapping)
+add_subdirectory(objects)
+add_subdirectory(sampler)
+add_subdirectory(world)
+add_subdirectory(backgrounds)
+add_subdirectory(filters)
+add_subdirectory(materials)
+add_subdirectory(rtengine)
+add_subdirectory(utils)
+
+add_executable (main main.cc)
