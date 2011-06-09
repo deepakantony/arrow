@@ -2,7 +2,7 @@
 #define BOX_H_
 
 #include "Primitive.h"
-#include "utils/Point.h"
+#include "Point.h"
 
 class Ray;
 

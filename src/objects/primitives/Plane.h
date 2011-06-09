@@ -2,7 +2,7 @@
 #ifndef Plane_h
 #define Plane_h
 
-#include "utils/Vector.h"
+#include "Vector.h"
 #include "Primitive.h"
 class HitRecord;
 class Point;

@@ -2,8 +2,8 @@
 #ifndef Primitive_h
 #define Primitive_h
 
-#include "../Object.h"
-#include "utils/Vector.h"
+#include "Object.h"
+#include "Vector.h"
 class Material;
 class Point;
 

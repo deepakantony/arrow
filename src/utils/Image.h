@@ -3,7 +3,7 @@
 #define Image_h
 
 #include "Color.h"
-#include "Math.h"
+#include "mathutil.h"
 #include <string>
 #include <iostream>
 

@@ -2,6 +2,7 @@
 #include "Image.h"
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 static void error(const std::string& filename, const std::string& errtext)

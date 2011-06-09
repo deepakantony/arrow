@@ -3,7 +3,7 @@
 #define ConstantBackground_h
 
 #include "Background.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class ConstantBackground : public Background {
  public:

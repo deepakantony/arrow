@@ -1,9 +1,9 @@
 
 #include "CheckerMaterial.h"
-#include "utils/Math.h"
-#include "rtengine/HitRecord.h"
-#include "rtengine/Ray.h"
-#include "objects/primitives/Primitive.h"
+#include "Math.h"
+#include "HitRecord.h"
+#include "Ray.h"
+#include "Primitive.h"
 #include <iostream>
 
 using namespace std;

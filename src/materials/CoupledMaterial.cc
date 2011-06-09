@@ -1,14 +1,14 @@
 
 #include "CoupledMaterial.h"
-#include "rtengine/HitRecord.h"
-#include "lights/Light.h"
-#include "utils/Point.h"
-#include "objects/primitives/Primitive.h"
-#include "rtengine/Ray.h"
-#include "rtengine/RenderContext.h"
-#include "rtengine/Scene.h"
-#include "utils/Vector.h"
-#include "utils/Math.h"
+#include "HitRecord.h"
+#include "Light.h"
+#include "Point.h"
+#include "Primitive.h"
+#include "Ray.h"
+#include "RenderContext.h"
+#include "Scene.h"
+#include "Vector.h"
+#include "Math.h"
 using namespace std;
 
 CoupledMaterial::CoupledMaterial(const Color& color, float Kd, float Ka, const Color& sHighlight, float exponent)

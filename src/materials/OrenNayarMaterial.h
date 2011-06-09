@@ -3,6 +3,7 @@
 #define _ORENNAYARMATERIAL_H_
 
 #include "Material.h"
+#include "Color.h"
 
 class OrenNayarMaterial: public Material 
 {

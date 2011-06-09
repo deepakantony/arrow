@@ -3,8 +3,8 @@
 #define PointLight_h
 
 #include "Light.h"
-#include "utils/Point.h"
-#include "utils/Color.h"
+#include "Point.h"
+#include "Color.h"
 
 class PointLight : public Light {
  public:

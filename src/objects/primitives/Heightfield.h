@@ -3,8 +3,8 @@
 
 #include <string>
 #include "Primitive.h"
-#include "utils/Point.h"
-#include "utils/Vector.h"
+#include "Point.h"
+#include "Vector.h"
 
 using namespace std;
 

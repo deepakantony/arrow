@@ -1,10 +1,10 @@
 
 #include "Box.h"
-#include "../BoundingBox.h"
-#include "rtengine/HitRecord.h"
-#include "utils/Point.h"
-#include "rtengine/Ray.h"
-#include "utils/Vector.h"
+#include "BoundingBox.h"
+#include "HitRecord.h"
+#include "Point.h"
+#include "Ray.h"
+#include "Vector.h"
 #include <math.h>
 #include <malloc.h>
 

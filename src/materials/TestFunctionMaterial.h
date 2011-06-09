@@ -3,7 +3,7 @@
 #define TestFunctionMaterial_h
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class TestFunctionMaterial : public Material {
  public:

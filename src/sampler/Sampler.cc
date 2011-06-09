@@ -1,4 +1,5 @@
 #include "Sampler.h"
+#include <cstdlib>
 
 Sampler::Sampler(int spp)
 :samplesPerPixel(spp)

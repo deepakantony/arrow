@@ -3,8 +3,8 @@
 #define PinholeCamera_h
 
 #include "Camera.h"
-#include "utils/Point.h"
-#include "utils/Vector.h"
+#include "Point.h"
+#include "Vector.h"
 
 class PinholeCamera : public Camera {
  public:

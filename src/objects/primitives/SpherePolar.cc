@@ -1,13 +1,13 @@
 
 
 #include "SpherePolar.h"
-#include "../BoundingBox.h"
-#include "rtengine/HitRecord.h"
-#include "utils/Point.h"
-#include "rtengine/Ray.h"
-#include "utils/Vector.h"
-#include "utils/Math.h"
-#include "mapping/SphericalMapping.h"
+#include "BoundingBox.h"
+#include "HitRecord.h"
+#include "Point.h"
+#include "Ray.h"
+#include "Vector.h"
+#include "Math.h"
+#include "SphericalMapping.h"
 #include <math.h>
 
 SpherePolar::SpherePolar(Material* material, const Point& center, double radius, const Vector& pole, const Vector& meridian)

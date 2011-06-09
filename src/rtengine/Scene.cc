@@ -1,17 +1,17 @@
 
 #include "Scene.h"
-#include "backgrounds/Background.h"
-#include "cameras/Camera.h"
+#include "Background.h"
+#include "Camera.h"
 #include "HitRecord.h"
-#include "utils/Image.h"
-#include "utils/Math.h"
-#include "lights/Light.h"
-#include "materials/Material.h"
-#include "objects/Object.h"
+#include "Image.h"
+#include "Math.h"
+#include "Light.h"
+#include "Material.h"
+#include "Object.h"
 #include "Ray.h"
 #include "RenderContext.h"
-#include "sampler/Sampler.h"
-#include "filters/Filter.h"
+#include "Sampler.h"
+#include "Filter.h"
 #include <float.h>
 #include <iostream>
 #include <stdlib.h>

@@ -1,6 +1,7 @@
 
 #include "JitteredSampler.h"
 #include <iostream>
+#include <cstdlib>
 
 JitteredSampler::JitteredSampler(int spp)
 :Sampler(spp)

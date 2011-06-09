@@ -3,7 +3,7 @@
 #define _CHECKERMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Vector.h"
+#include "Vector.h"
 
 class CheckerMaterial: public Material 
 {

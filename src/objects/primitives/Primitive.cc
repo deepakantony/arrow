@@ -1,9 +1,9 @@
 
 #include "Primitive.h"
-#include "rtengine/HitRecord.h"
-#include "materials/Material.h"
-#include "rtengine/Ray.h"
-#include "utils/Vector.h"
+#include "HitRecord.h"
+#include "Material.h"
+#include "Ray.h"
+#include "Vector.h"
 
 Primitive::Primitive(Material* matl)
   : matl(matl)

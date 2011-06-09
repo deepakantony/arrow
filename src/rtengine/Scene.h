@@ -2,7 +2,7 @@
 #ifndef Scene_h
 #define Scene_h
 
-#include "utils/Color.h"
+#include "Color.h"
 #include <string>
 #include <vector>
 

@@ -1,6 +1,6 @@
 
 #include "GaussianFilter.h"
-#include "utils/Math.h"
+#include "Math.h"
 
 GaussianFilter::GaussianFilter(double std)
 : Filter(5),std(std)

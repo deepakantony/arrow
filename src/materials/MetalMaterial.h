@@ -2,7 +2,7 @@
 #define METALMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class MetalMaterial : public  Material {
  public:

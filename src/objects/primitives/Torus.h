@@ -2,8 +2,8 @@
 #define TORUS_H_
 
 #include "Primitive.h"
-#include "utils/Point.h"
-#include "utils/Vector.h"
+#include "Point.h"
+#include "Vector.h"
 
 class Ray;
 

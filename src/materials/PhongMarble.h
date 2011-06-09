@@ -3,7 +3,7 @@
 #define _PHONGMARBLE_H_
 
 #include "PhongMaterial.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class PhongMarble: public PhongMaterial 
 {

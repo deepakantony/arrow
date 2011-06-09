@@ -3,7 +3,7 @@
 #define _PHONGIMAGEMATERIAL_H_
 
 #include "PhongMaterial.h"
-#include "utils/Image.h"
+#include "Image.h"
 #include <string>
 
 using namespace std;

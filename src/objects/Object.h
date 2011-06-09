@@ -8,7 +8,7 @@ class HitRecord;
 class Ray;
 class RenderContext;
 
-#include "utils/Matrix.h"
+#include "Matrix.h"
 
 class Object {
  public:

@@ -2,7 +2,7 @@
 #ifndef BoundingBox_h
 #define BoundingBox_h
 
-#include "utils/Point.h"
+#include "Point.h"
 
 class BoundingBox {
  public:

@@ -3,7 +3,7 @@
 #define LambertianMaterial_h
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class LambertianMaterial : public Material {
  public:

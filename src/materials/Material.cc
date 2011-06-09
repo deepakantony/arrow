@@ -1,8 +1,8 @@
 
 #include "Material.h"
-#include "rtengine/RenderContext.h"
-#include "rtengine/HitRecord.h"
-#include "rtengine/Ray.h"
+#include "RenderContext.h"
+#include "HitRecord.h"
+#include "Ray.h"
 
 Material::Material()
 {

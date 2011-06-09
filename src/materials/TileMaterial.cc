@@ -1,9 +1,9 @@
 
 #include "TileMaterial.h"
-#include "utils/Math.h"
-#include "rtengine/HitRecord.h"
-#include "rtengine/Ray.h"
-#include "objects/primitives/Primitive.h"
+#include "Math.h"
+#include "HitRecord.h"
+#include "Ray.h"
+#include "Primitive.h"
 
 TileMaterial::TileMaterial(const Vector& vector1, const Vector& vector2, const double scale, const double groutWidth, Material *matlTile, Material*matlGrout)
 :vector1(vector1), vector2(vector2), scale(scale), groutWidth(groutWidth), matlTile(matlTile), matlGrout(matlGrout)

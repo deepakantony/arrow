@@ -2,7 +2,7 @@
 #define COUPLEDMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class CoupledMaterial : public Material {
  public:

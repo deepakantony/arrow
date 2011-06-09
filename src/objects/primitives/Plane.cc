@@ -1,8 +1,8 @@
 
 #include "Plane.h"
-#include "rtengine/HitRecord.h"
-#include "utils/Math.h"
-#include "rtengine/Ray.h"
+#include "HitRecord.h"
+#include "Math.h"
+#include "Ray.h"
 #include <iostream>
 #include <stdlib.h>
 using namespace std;

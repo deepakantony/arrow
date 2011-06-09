@@ -1,11 +1,12 @@
 
 #include "Time.h"
-#include <errno.h>
+#include <cerrno>
+#include <cstring>
 #ifdef _WIN32
 #include <windows.h>
 #else
 #ifdef __linux
-#include <time.h>
+#include <ctime>
 #endif
 #include <sys/time.h>
 #endif

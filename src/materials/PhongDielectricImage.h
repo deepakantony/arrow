@@ -5,7 +5,7 @@
 
 #include "DielectricMaterial.h"
 #include "PhongMaterial.h"
-#include "utils/Image.h"
+#include "Image.h"
 
 #include <string>
 

@@ -1,7 +1,7 @@
 
 
 #include "Instance.h"
-#include "rtengine/Ray.h"
+#include "Ray.h"
 
 Instance::Instance()
 : Object()

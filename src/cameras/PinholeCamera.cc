@@ -1,7 +1,7 @@
 
 #include "PinholeCamera.h"
-#include "rtengine/Ray.h"
-#include "utils/Math.h"
+#include "Ray.h"
+#include "Math.h"
 #include <math.h>
 #include <iostream>
 

@@ -2,7 +2,7 @@
 #ifndef Color_h
 #define Color_h
 
-#include "Math.h"
+#include "mathutil.h"
 #include <iosfwd>
 
 class Color {

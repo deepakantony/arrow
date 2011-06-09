@@ -4,7 +4,7 @@
 #define DIELECTRICMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class DielectricMaterial : public Material {
  public:

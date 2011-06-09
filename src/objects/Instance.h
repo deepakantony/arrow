@@ -4,9 +4,9 @@
 #define _INSTANCE_H_
 
 #include "Object.h"
-#include "utils/Matrix.h"
-#include "utils/Point.h"
-#include "utils/Vector.h"
+#include "Matrix.h"
+#include "Point.h"
+#include "Vector.h"
 
 class Instance: public Object 
 {

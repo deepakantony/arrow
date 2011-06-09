@@ -1,11 +1,11 @@
 
 
 #include "PhongDielectricImage.h"
-#include "utils/Image.h"
-#include "utils/Color.h"
-#include "utils/Vector.h"
-#include "rtengine/HitRecord.h"
-#include "objects/primitives/Primitive.h"
+#include "Image.h"
+#include "Color.h"
+#include "Vector.h"
+#include "HitRecord.h"
+#include "Primitive.h"
 
 PhongDielectricImage::PhongDielectricImage(const string file, const Color& colormask, const double maskrange, PhongMaterial* phong, DielectricMaterial* dielectric)
 :PhongMaterial(*phong),dielectric(dielectric), colormask(colormask), maskrange(maskrange)

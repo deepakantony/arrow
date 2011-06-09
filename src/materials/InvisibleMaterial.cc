@@ -1,11 +1,11 @@
 
 #include "InvisibleMaterial.h"
-#include "utils/Vector.h"
-#include "utils/Point.h"
-#include "rtengine/Ray.h"
-#include "rtengine/HitRecord.h"
-#include "rtengine/Scene.h"
-#include "rtengine/RenderContext.h"
+#include "Vector.h"
+#include "Point.h"
+#include "Ray.h"
+#include "HitRecord.h"
+#include "Scene.h"
+#include "RenderContext.h"
 
 InvisibleMaterial::InvisibleMaterial()
 {

@@ -2,7 +2,7 @@
 #define PHONGMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Color.h"
+#include "Color.h"
 
 class PhongMaterial : public Material {
  public:

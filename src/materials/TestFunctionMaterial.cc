@@ -1,8 +1,8 @@
 
 #include "TestFunctionMaterial.h"
-#include "rtengine/HitRecord.h"
-#include "utils/Point.h"
-#include "rtengine/Ray.h"
+#include "HitRecord.h"
+#include "Point.h"
+#include "Ray.h"
 using namespace std;
 
 TestFunctionMaterial::TestFunctionMaterial()

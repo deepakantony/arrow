@@ -3,7 +3,7 @@
 #define Sphere_h
 
 #include "Primitive.h"
-#include "utils/Point.h"
+#include "Point.h"
 class Ray;
 
 class Sphere : public Primitive {

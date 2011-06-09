@@ -2,7 +2,7 @@
 #ifndef _MAPPING_H_
 #define _MAPPING_H_
 
-#include "utils/Point.h"
+#include "Point.h"
 
 class Mapping
 {

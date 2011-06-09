@@ -3,8 +3,8 @@
 #define _TILEMATERIAL_H_
 
 #include "Material.h"
-#include "utils/Vector.h"
-#include "utils/Color.h"
+#include "Vector.h"
+#include "Color.h"
 
 class TileMaterial: public Material 
 {

@@ -1,6 +1,6 @@
 
 #include "TriangleFilter.h"
-#include "utils/Math.h"
+#include "mathutil.h"
 
 TriangleFilter::TriangleFilter() 
 :Filter(2)
