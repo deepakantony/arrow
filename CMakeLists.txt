@@ -17,3 +17,4 @@ ${ARROW_SRC}/filters
 ${ARROW_SRC}/mapping)
 
 subdirs(src bin)
+include_directories(. ${ARROW_INCLUDE_DIRS})
