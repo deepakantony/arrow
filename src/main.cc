@@ -26,8 +26,8 @@ int main(int argc, char** argv)
 {
   double t1 = Time::currentSeconds();
 
-  if ( argc < 2 ) {
-    cerr << "Usage: specter scene" << endl;
+  if ( argc < 3 ) {
+    cerr << "Usage: <program> <scenefile> <outputppm>" << endl;
     return 1;
   }
   
@@ -38,16 +38,25 @@ int main(int argc, char** argv)
     return 1;
   }
   Parser reader( scene_file );
-  string filename = "image.ppm";
-  Scene *scene = reader.parseScene( filename );
+  string filename(argv[2]);
 
+  cout << "Parsing scene file... " << flush;
+  Scene *scene = reader.parseScene( filename );
+  cout << "done" << endl;
+
+  cout << "Preprocessing the scene... " << flush;
   scene->preprocess();
+  cout << "done" << endl;
 
   double t2 = Time::currentSeconds();
+  cout << "Rendering... started" << endl;
   scene->render();
+  cout << "Rendering... complete" << endl;
 
   double t3 = Time::currentSeconds();
+  cout << "Writing the image to: " << filename << " ... " << flush;
   scene->getImage()->write(filename);
+  cout << "done" << endl;
 
   double t4 = Time::currentSeconds();
   cerr << "Setup/load time:\t" << setprecision(3) << t2-t1 << " seconds\n";

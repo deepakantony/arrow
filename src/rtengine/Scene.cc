@@ -43,16 +43,20 @@ Scene::~Scene()
 
 void Scene::preprocess()
 {
+  cout << "background..." << flush;
   background->preprocess();
+  cout << "light..." << flush;
   for(int i=0;i<static_cast<int>(lights.size());i++){
     Light* light = lights[i];
     light->preprocess();
   }
   double aspect_ratio = image->aspect_ratio();
+  cout << "camera..." << flush;
   camera->preprocess(aspect_ratio);
+  cout << "object..." << flush;
   object->preprocess();
-	
-	samplesPerPixel = sampler->getSamplesPerPixel();
+  cout << "sampler..." << flush;
+  samplesPerPixel = sampler->getSamplesPerPixel();
 }
 
 void Scene::render()

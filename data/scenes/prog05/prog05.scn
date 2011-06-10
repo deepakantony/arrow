@@ -32,7 +32,7 @@ scene group {
 
   spherepolar {
     material phongimage {
-      file "../textures/land_ocean_ice_cloud_1024.ppm"
+      file "../../arrow/data/textures/land_ocean_ice_cloud_1024.ppm"
       Kd 0.6
       Ka 0.4
       highlight [ 1.0, 1.0, 1.0 ]
@@ -46,7 +46,7 @@ scene group {
 
   spherepolar {
     material phongimage {
-      file "../textures/land_lights_1024.ppm"
+      file "../../arrow/data/textures/land_lights_1024.ppm"
       Kd 0.6
       Ka 0.4
       highlight [ 0.0, 0.0, 0.0 ]
