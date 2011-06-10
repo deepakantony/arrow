@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Triangle::Triangle(Material* material, const Point& corner1, const Point& corner2, const Point& corner3)
 :Primitive(material), a(corner1), b(corner2), c(corner3)

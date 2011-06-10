@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Cylinder::Cylinder(Material* material, const Point& center, const double height, const double radius)
 :Primitive(material), center(center), top(height+center.y()), bottom(center.y()), radius(radius)

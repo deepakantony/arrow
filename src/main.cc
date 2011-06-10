@@ -14,7 +14,7 @@
 #include "Ray.h"
 #include "Scene.h"
 #include "Sphere.h"
-#include "Time.h"
+#include "timeutil.h"
 #include "Parser.h"
 #include <iomanip>
 #include <iostream>

@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Disk::Disk(Material* material, const Point& center, const Vector& normal, const double radius)
 :Primitive(material), center(center), n(normal), radius(radius)

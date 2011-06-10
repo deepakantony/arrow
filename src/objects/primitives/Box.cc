@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Box::Box(Material* material, const Point& corner1, const Point& corner2)
 :Primitive(material)

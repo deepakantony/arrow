@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Rectangle::Rectangle(Material* material, const Point& p, const Vector& a, const Vector& b)
 :Primitive(material), p(p), a(a), b(b)

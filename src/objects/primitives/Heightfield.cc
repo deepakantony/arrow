@@ -8,7 +8,11 @@
 #include <fstream>
 #include <iostream>
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 #include <stdlib.h>
 //#include <map.h>
 #include <float.h>

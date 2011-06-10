@@ -6,7 +6,11 @@
 #include "Ray.h"
 #include "Vector.h"
 #include <math.h>
+#ifdef __APPLE__
+#include <cstdlib>
+#else
 #include <malloc.h>
+#endif
 
 Ring::Ring(Material* material, const Point& center, const Vector& normal, 
 	const double innerRadius, const double outerRadius)
