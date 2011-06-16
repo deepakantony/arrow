@@ -50,19 +50,19 @@ class Scene {
     image = im;
   }
 	
-	Sampler* getSampler() const {
-		return sampler;
-	}
-	void setSampler(Sampler* s) {
-		sampler = s;
-	}
+  Sampler* getSampler() const {
+    return sampler;
+  }
+  void setSampler(Sampler* s) {
+    sampler = s;
+  }
 	
-	Filter* getFilter() const {
-		return filter;
-	}
-	void setFilter(Filter* fil) {
-		filter = fil;
-	}
+  Filter* getFilter() const {
+    return filter;
+  }
+  void setFilter(Filter* fil) {
+    filter = fil;
+  }
 
   void addLight(Light* light) {
     lights.push_back(light);
@@ -105,12 +105,12 @@ class Scene {
   Color ambient;
   Image* image;
   Object* object;
-	Sampler* sampler;
-	Filter* filter;
+  Sampler* sampler;
+  Filter* filter;
   std::vector<Light*> lights;
   int maxRayDepth;
   double minAttenuation;
-	int samplesPerPixel;
+  int samplesPerPixel;
 
 };
 

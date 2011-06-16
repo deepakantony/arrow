@@ -80,184 +80,184 @@ void Parser::readNextToken()
   for ( ; ; ) {
     int character = input.get();
     switch ( state ) {
-      case 0:
-        next_token.line_number = line_number;
-        next_token.column_number = column_number;
-        if ( input.eof() ) {
-          next_token.token_type = Token::end_of_file;
-          return;
-        } else if ( character == ' ' || character == '\t' ||
-                    character == '\r' || character == '\n' )
-          state = 0;
-        else if ( character == '/' )
-          state = 1;
-        else if ( character == '+' || character == '-' ) {
-          negative_mantissa = character == '-';
-          state = 3;
-        } else if ( character >= '0' && character <= '9' ) {
-          mantissa = character - '0';
-          state = 4;
-        } else if ( character == '.' )
-          state = 5;
-        else if ( character == '"' ) {
-          next_token.string_value.clear();
-          state = 10;
-        } else if ( character >= 'A' && character <= 'Z' ||
-                    character >= 'a' && character <= 'z' ||
-                    character == '_' ) {
-          next_token.string_value = static_cast< char >( character );
-          state = 12;
-        } else if ( character == ',' ) {
-          ++column_number;
-          next_token.token_type = Token::comma;
-          return;
-        } else if ( character == '{' ) {
-          ++column_number;
-          next_token.token_type = Token::left_brace;
-          return;
-        } else if ( character == '}' ) {
-          ++column_number;
-          next_token.token_type = Token::right_brace;
-          return;
-        } else if ( character == '[' ) {
-          ++column_number;
-          next_token.token_type = Token::left_bracket;
-          return;
-        } else if ( character == ']' ) {
-          ++column_number;
-          next_token.token_type = Token::right_bracket;
-          return;
-        } else
-          throwParseException( "Unexpected character" );
-        break;
-      case 1:
-        if ( character == '/' )
-          state = 2;
-        else
-          throwParseException( "Malformed comment" );
-        break;
-      case 2:
-        if ( character == '\n' || input.eof() )
-          state = 0;
-        break;
-      case 3:
-        if ( character >= '0' && character <= '9' ) {
-          mantissa = character - '0';
-          state = 4;
-        } else if ( character == '.' )
-          state = 5;
-        else
-          throwParseException( "Invalid number" );
-        break;
-      case 4:
-        if ( character >= '0' && character <= '9' )
-          mantissa = mantissa * 10 + character - '0';
-        else if ( character == '.' )
-          state = 6;
-        else if ( character == 'E' || character == 'e' )
-          state = 7;
-        else {
-          input.putback( static_cast< char >( character ) );
-          next_token.integer_value = ( static_cast< int >( mantissa ) *
-                                       ( negative_mantissa ? -1 : 1 ) );
-          next_token.token_type = Token::integer;
-          return;
-        }
-        break;
-      case 5:
-        if ( character >= '0' && character <= '9' ) {
-          mantissa = character - '0';
-          exponent_adjustment = 1;
-          state = 6;
-        } else
-          throwParseException( "Invalid number" );
-        break;
-      case 6:
-        if ( character >= '0' && character <= '9' ) {
-          mantissa = mantissa * 10 + character - '0';
-          ++exponent_adjustment;
-        } else if ( character == 'E' || character == 'e' )
-          state = 7;
-        else {
-          input.putback( static_cast< char >( character ) );
-          next_token.real_value = ( mantissa * ( negative_mantissa ? -1 : 1 ) *
-                                    pow( 10.0, -exponent_adjustment ) );
-          next_token.token_type = Token::real;
-          return;
-        }
-        break;
-      case 7:
-        if ( character == '+' || character == '-' ) {
-          negative_exponent = character == '-';
-          state = 8;
-        } else if ( character >= '0' && character <= '9' ) {
-          exponent = character - '0';
-          state = 9;
-        } else
-          throwParseException( "Invalid number" );
-        break;
-      case 8:
-        if ( character >= '0' && character <= '9' ) {
-          exponent = character - '0';
-          state = 9;
-        } else
-          throwParseException( "Invalid number" );
-        break;
-      case 9:
-        if ( character >= '0' && character <= '9' )
-          exponent = exponent * 10 + character - '0';
-        else {
-          input.putback( static_cast< char >( character ) );
-          next_token.real_value = ( mantissa * ( negative_mantissa ? -1 : 1 ) *
-                                    pow( 10.0, ( exponent * ( negative_exponent ? -1 : 1 ) -
-                                                 exponent_adjustment ) ) );
-          next_token.token_type = Token::real;
-          return;
-        }
-        break;
-      case 10:
-        if ( input.eof() || character == '\n' )
-          throwParseException( "Unterminated string" );
-        else if ( character == '\\' )
-          state = 11;
-        else if ( character == '"' ) {
-          ++column_number;
-          next_token.token_type = Token::string;
-          return;
-        } else
-          next_token.string_value.push_back( static_cast< char >( character ) );
-        break;
-      case 11:
-        if ( input.eof() )
-          throwParseException( "Unterminated string" );
-        else if ( character == '\n' )
-          next_token.string_value.push_back( '\n' );
-        else if ( character == '\\' )
-          next_token.string_value.push_back( '\\' );
-        else if ( character == '"' )
-          next_token.string_value.push_back( '"' );
-        else
-          next_token.string_value.push_back( static_cast< char >( character ) );
-        state = 10;
-        break;
-      case 12:
-        if ( character >= '0' && character <= '9' ||
-             character >= 'A' && character <= 'Z' ||
-             character >= 'a' && character <= 'z' ||
-             character == '_' )
-          next_token.string_value.push_back( static_cast< char >( character ) );
-        else {
-          input.putback( static_cast< char >( character ) );
-          next_token.token_type = Token::string;
-          return;
-        }
-        break;
+    case 0:
+      next_token.line_number = line_number;
+      next_token.column_number = column_number;
+      if ( input.eof() ) {
+	next_token.token_type = Token::end_of_file;
+	return;
+      } else if ( character == ' ' || character == '\t' ||
+		  character == '\r' || character == '\n' )
+	state = 0;
+      else if ( character == '/' )
+	state = 1;
+      else if ( character == '+' || character == '-' ) {
+	negative_mantissa = character == '-';
+	state = 3;
+      } else if ( character >= '0' && character <= '9' ) {
+	mantissa = character - '0';
+	state = 4;
+      } else if ( character == '.' )
+	state = 5;
+      else if ( character == '"' ) {
+	next_token.string_value.clear();
+	state = 10;
+      } else if ( character >= 'A' && character <= 'Z' ||
+		  character >= 'a' && character <= 'z' ||
+		  character == '_' ) {
+	next_token.string_value = static_cast< char >( character );
+	state = 12;
+      } else if ( character == ',' ) {
+	++column_number;
+	next_token.token_type = Token::comma;
+	return;
+      } else if ( character == '{' ) {
+	++column_number;
+	next_token.token_type = Token::left_brace;
+	return;
+      } else if ( character == '}' ) {
+	++column_number;
+	next_token.token_type = Token::right_brace;
+	return;
+      } else if ( character == '[' ) {
+	++column_number;
+	next_token.token_type = Token::left_bracket;
+	return;
+      } else if ( character == ']' ) {
+	++column_number;
+	next_token.token_type = Token::right_bracket;
+	return;
+      } else
+	throwParseException( "Unexpected character" );
+      break;
+    case 1:
+      if ( character == '/' )
+	state = 2;
+      else
+	throwParseException( "Malformed comment" );
+      break;
+    case 2:
+      if ( character == '\n' || input.eof() )
+	state = 0;
+      break;
+    case 3:
+      if ( character >= '0' && character <= '9' ) {
+	mantissa = character - '0';
+	state = 4;
+      } else if ( character == '.' )
+	state = 5;
+      else
+	throwParseException( "Invalid number" );
+      break;
+    case 4:
+      if ( character >= '0' && character <= '9' )
+	mantissa = mantissa * 10 + character - '0';
+      else if ( character == '.' )
+	state = 6;
+      else if ( character == 'E' || character == 'e' )
+	state = 7;
+      else {
+	input.putback( static_cast< char >( character ) );
+	next_token.integer_value = ( static_cast< int >( mantissa ) *
+				     ( negative_mantissa ? -1 : 1 ) );
+	next_token.token_type = Token::integer;
+	return;
+      }
+      break;
+    case 5:
+      if ( character >= '0' && character <= '9' ) {
+	mantissa = character - '0';
+	exponent_adjustment = 1;
+	state = 6;
+      } else
+	throwParseException( "Invalid number" );
+      break;
+    case 6:
+      if ( character >= '0' && character <= '9' ) {
+	mantissa = mantissa * 10 + character - '0';
+	++exponent_adjustment;
+      } else if ( character == 'E' || character == 'e' )
+	state = 7;
+      else {
+	input.putback( static_cast< char >( character ) );
+	next_token.real_value = ( mantissa * ( negative_mantissa ? -1 : 1 ) *
+				  pow( 10.0, -exponent_adjustment ) );
+	next_token.token_type = Token::real;
+	return;
+      }
+      break;
+    case 7:
+      if ( character == '+' || character == '-' ) {
+	negative_exponent = character == '-';
+	state = 8;
+      } else if ( character >= '0' && character <= '9' ) {
+	exponent = character - '0';
+	state = 9;
+      } else
+	throwParseException( "Invalid number" );
+      break;
+    case 8:
+      if ( character >= '0' && character <= '9' ) {
+	exponent = character - '0';
+	state = 9;
+      } else
+	throwParseException( "Invalid number" );
+      break;
+    case 9:
+      if ( character >= '0' && character <= '9' )
+	exponent = exponent * 10 + character - '0';
+      else {
+	input.putback( static_cast< char >( character ) );
+	next_token.real_value = ( mantissa * ( negative_mantissa ? -1 : 1 ) *
+				  pow( 10.0, ( exponent * ( negative_exponent ? -1 : 1 ) -
+					       exponent_adjustment ) ) );
+	next_token.token_type = Token::real;
+	return;
+      }
+      break;
+    case 10:
+      if ( input.eof() || character == '\n' )
+	throwParseException( "Unterminated string" );
+      else if ( character == '\\' )
+	state = 11;
+      else if ( character == '"' ) {
+	++column_number;
+	next_token.token_type = Token::string;
+	return;
+      } else
+	next_token.string_value.push_back( static_cast< char >( character ) );
+      break;
+    case 11:
+      if ( input.eof() )
+	throwParseException( "Unterminated string" );
+      else if ( character == '\n' )
+	next_token.string_value.push_back( '\n' );
+      else if ( character == '\\' )
+	next_token.string_value.push_back( '\\' );
+      else if ( character == '"' )
+	next_token.string_value.push_back( '"' );
+      else
+	next_token.string_value.push_back( static_cast< char >( character ) );
+      state = 10;
+      break;
+    case 12:
+      if ( character >= '0' && character <= '9' ||
+	   character >= 'A' && character <= 'Z' ||
+	   character >= 'a' && character <= 'z' ||
+	   character == '_' )
+	next_token.string_value.push_back( static_cast< char >( character ) );
+      else {
+	input.putback( static_cast< char >( character ) );
+	next_token.token_type = Token::string;
+	return;
+      }
+      break;
     }
     if ( character == '\n' )
-    {
-      ++line_number;
-      column_number = 0;
-    }
+      {
+	++line_number;
+	column_number = 0;
+      }
     else if ( character == '\t' )
       column_number = ( column_number + 8 ) / 8 * 8;
     else
@@ -465,35 +465,35 @@ Light *Parser::parseLight()
 
 Sampler *Parser::parseSampler()
 {
-	int spp = parseInteger();
-	if( peek("uniform") )
-		return new UniformSampler(spp);
-	else if( peek("jitter") )
-		return new JitteredSampler(spp);
-	else if( peek("multijitter") )
-		return new MultiJitteredSampler(spp);
-	else if( peek("nrooks") )
-		return new NRooksSampler(spp);
-	else if( peek("hammersley") )
-		return new HammersleySampler(spp);
-	else throwParseException( "Expected `uniform' `jitter' `multijitter' `nrooks' `hammersley'" );
+  int spp = parseInteger();
+  if( peek("uniform") )
+    return new UniformSampler(spp);
+  else if( peek("jitter") )
+    return new JitteredSampler(spp);
+  else if( peek("multijitter") )
+    return new MultiJitteredSampler(spp);
+  else if( peek("nrooks") )
+    return new NRooksSampler(spp);
+  else if( peek("hammersley") )
+    return new HammersleySampler(spp);
+  else throwParseException( "Expected `uniform' `jitter' `multijitter' `nrooks' `hammersley'" );
 }
 
 Filter *Parser::parseFilter()
 {
-	if( peek("box") )
-		return new BoxFilter();
-	else if( peek("triangle") )
-		return new TriangleFilter();
-	else if( peek("gaussian") ) {
-		double std = parseReal();
-		return new GaussianFilter(std);
-	}
-	else if( peek("mitchell") )
-		return new MitchellFilter();
-	else if( peek("sinc") || peek("lanczos") )
-		return new WindowedSincFilter();
-	else throwParseException( "Expected `box' `triangle' `gaussian' `mitchell' `sinc' `lanczos'" );
+  if( peek("box") )
+    return new BoxFilter();
+  else if( peek("triangle") )
+    return new TriangleFilter();
+  else if( peek("gaussian") ) {
+    double std = parseReal();
+    return new GaussianFilter(std);
+  }
+  else if( peek("mitchell") )
+    return new MitchellFilter();
+  else if( peek("sinc") || peek("lanczos") )
+    return new WindowedSincFilter();
+  else throwParseException( "Expected `box' `triangle' `gaussian' `mitchell' `sinc' `lanczos'" );
 }
 /*
 Texture *Parser::parseImageTexture() {
@@ -1208,7 +1208,7 @@ Parser::Parser(
 }
 
 Scene *Parser::parseScene(
-  string &filename )
+			  string &filename )
 {
   filename = "image.ppm";
   int xres = 512;
@@ -1227,10 +1227,10 @@ Scene *Parser::parseScene(
       scene->setMinAttenuation( parseReal() );
     else if ( peek( "camera" ) )
       scene->setCamera( parseCamera() );
-	else if ( peek( "sampler" ) )
-		scene->setSampler( parseSampler() );
-	else if ( peek( "filter" ) )
-		  scene->setFilter( parseFilter() );
+    else if ( peek( "sampler" ) )
+      scene->setSampler( parseSampler() );
+    else if ( peek( "filter" ) )
+      scene->setFilter( parseFilter() );
     else if ( peek( "background" ) )
       scene->setBackground( parseBackground() );
     else if ( peek( "ambient" ) )
@@ -1250,11 +1250,15 @@ Scene *Parser::parseScene(
         throwParseException( "Expected `material', or `object'" );
     }
     else if ( peek( Token::end_of_file ) )
-        break;
+      break;
     else
-        throwParseException( "Expected `filename', `xres', `yres', `maxraydepth', `minattenuation', "
-                             "`camera', `background', `ambient', `light', `scene', or `define'." );
+      throwParseException( "Expected `filename', `xres', `yres', `maxraydepth', `minattenuation', "
+			   "`camera', `background', `ambient', `light', `scene', or `define'." );
   }
   scene->setImage( new Image( xres, yres ) );
+  if(!scene->getSampler())
+    scene->setSampler(new UniformSampler(1));
+  if(!scene->getFilter())
+    scene->setFilter(new BoxFilter());
   return scene;
 }
