@@ -8,7 +8,6 @@
 #include "RenderContext.h"
 #include "Scene.h"
 #include "Vector.h"
-#include "Math.h"
 #include "PerlinNoise.h"
 #include <iostream>
 

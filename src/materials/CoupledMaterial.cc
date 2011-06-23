@@ -8,7 +8,7 @@
 #include "RenderContext.h"
 #include "Scene.h"
 #include "Vector.h"
-#include "Math.h"
+#include "mathutil.h"
 using namespace std;
 
 CoupledMaterial::CoupledMaterial(const Color& color, float Kd, float Ka, const Color& sHighlight, float exponent)

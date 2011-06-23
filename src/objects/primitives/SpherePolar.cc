@@ -6,7 +6,7 @@
 #include "Point.h"
 #include "Ray.h"
 #include "Vector.h"
-#include "Math.h"
+#include "mathutil.h"
 #include "SphericalMapping.h"
 #include <math.h>
 

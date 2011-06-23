@@ -4,7 +4,7 @@
 #include "Camera.h"
 #include "HitRecord.h"
 #include "Image.h"
-#include "Math.h"
+#include "mathutil.h"
 #include "Light.h"
 #include "Material.h"
 #include "Object.h"

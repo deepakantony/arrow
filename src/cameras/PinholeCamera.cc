@@ -1,7 +1,7 @@
 
 #include "PinholeCamera.h"
 #include "Ray.h"
-#include "Math.h"
+#include "mathutil.h"
 #include <math.h>
 #include <iostream>
 

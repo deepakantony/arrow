@@ -1,6 +1,6 @@
 
 #include "PerlinNoise.h"
-#include "Math.h"
+#include "mathutil.h"
 #include "Point.h"
 
 // JAVA REFERENCE IMPLEMENTATION OF IMPROVED NOISE - COPYRIGHT 2002 KEN PERLIN.

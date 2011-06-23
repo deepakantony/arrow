@@ -1,7 +1,7 @@
 
 #include "Plane.h"
 #include "HitRecord.h"
-#include "Math.h"
+#include "mathutil.h"
 #include "Ray.h"
 #include <iostream>
 #include <stdlib.h>

@@ -1,6 +1,5 @@
 
 #include "TileMaterial.h"
-#include "Math.h"
 #include "HitRecord.h"
 #include "Ray.h"
 #include "Primitive.h"

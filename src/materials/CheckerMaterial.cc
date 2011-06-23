@@ -1,6 +1,6 @@
 
 #include "CheckerMaterial.h"
-#include "Math.h"
+#include "mathutil.h"
 #include "HitRecord.h"
 #include "Ray.h"
 #include "Primitive.h"

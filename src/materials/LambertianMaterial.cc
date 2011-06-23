@@ -8,7 +8,7 @@
 #include "RenderContext.h"
 #include "Scene.h"
 #include "Vector.h"
-#include "Math.h"
+#include "mathutil.h"
 using namespace std;
 
 LambertianMaterial::LambertianMaterial(const Color& color, float Kd, float Ka)

@@ -1,6 +1,6 @@
 
 #include "SphericalMapping.h"
-#include "Math.h"
+#include "mathutil.h"
 #include <iostream>
 
 using namespace std;
