@@ -36,13 +36,13 @@ void LambertianMaterial::shade(Color& result, const RenderContext& context,
 
   Color light = scene->getAmbient()*Ka;
 
-#if 0
-  for(vector<Light*>::const_iterator iter = lights.begin(); iter != lights.end(); iter++){
-#else
-    Light*const* begin = &lights[0];
-    Light*const* end = &lights[0]+lights.size();
-    while(begin != end){
-#endif
+
+  //for(vector<Light*>::const_iterator iter = lights.begin(); iter != lights.end(); iter++){
+
+  Light*const* begin = &lights[0];
+  Light*const* end = &lights[0]+lights.size();
+  while(begin != end){
+
     Color light_color;
     Vector light_direction;
     double dist = (*begin++)->getLight(light_color, light_direction, context, hitpos);
@@ -50,12 +50,13 @@ void LambertianMaterial::shade(Color& result, const RenderContext& context,
     if(cosphi > 0){
       // Cast shadow rays...
       HitRecord shadowhit(dist);
-		Ray shadowray(hitpos, light_direction);
-		world->intersect(shadowhit, context, shadowray);
+      Ray shadowray(hitpos, light_direction);
+      world->intersect(shadowhit, context, shadowray);
       if(!shadowhit.getPrimitive() || !shadowhit.getMaterial()->castShadows(context,shadowhit,shadowray))
-        // No shadows...
-        light += light_color*(Kd*cosphi);
+	// No shadows...
+	light += light_color*(Kd*cosphi);
     }
   }
   result = light*color;
 }
+//}

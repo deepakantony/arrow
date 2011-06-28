@@ -24,7 +24,7 @@ background constant {
   color [ 0.85, 0.95, 1.0 ]
 }
 
-ambient 0.4
+ambient 0.8
 
 light point {
   position [ -40.0, 40.0, 100.0 ]

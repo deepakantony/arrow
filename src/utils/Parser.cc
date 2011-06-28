@@ -1210,7 +1210,7 @@ Parser::Parser(
 Scene *Parser::parseScene(
 			  string &filename )
 {
-  filename = "image.ppm";
+  //  filename = "image.ppm";
   int xres = 512;
   int yres = 512;
   Scene *scene = new Scene();

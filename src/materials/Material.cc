@@ -18,6 +18,6 @@ void Material::preprocess()
 
 bool Material::castShadows(const RenderContext& context, const HitRecord& hit, const Ray& ray) const
 {
-	return true;
+  return true;
 }
 

@@ -15,7 +15,7 @@ background constant {
   color [ 0.7, 0.7, 0.1 ]
 }
 
-ambient 0.4
+ambient 1.4
 
 light point {
   position [ -40.0, 40.0, 100.0 ]
@@ -69,25 +69,3 @@ scene group {
 
 
 
-  torus {
-    material lambertian {
-      color [ 1.0, 0.0, 0.0 ]
-      Kd 0.6
-      Ka 0.4
-    }
-    center [ 0.0, 0.0, 0.0 ]
-    normal [ 0.0, -1.0, 0.0 ]
-    radius 15.0
-    tubeRadius 1.0
-  }
-  
-  disk {
-    material lambertian {
-      color [ 0.2, 0.4, 0.1 ]
-      Kd 0.6
-      Ka 0.4
-    }
-    center [ 0.0, 0.0, 0.0 ]
-    normal [ 0.0, 1.0, 0.0 ]
-    radius 15.0
-  }

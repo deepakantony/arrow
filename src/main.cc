@@ -22,12 +22,14 @@
 
 using namespace std;
 
+#define DEFAULT_OUTPUT_FILENAME "image.ppm"
+
 int main(int argc, char** argv)
 {
   double t1 = Time::currentSeconds();
 
-  if ( argc < 3 ) {
-    cerr << "Usage: <program> <scenefile> <outputppm>" << endl;
+  if ( argc < 2 ) {
+    cerr << "Usage: <program> <scenefile>" << endl;
     return 1;
   }
   
@@ -35,14 +37,20 @@ int main(int argc, char** argv)
   //ifstream scene_file("/home/beast/Desktop/daray/scenes/prog04/prog04.scn");
   if ( !scene_file.good() ) {
     cerr << "Unable to read scene file: " << argv[ 1 ] << endl;
-    return 1;
+    return -1;
   }
   Parser reader( scene_file );
-  string filename(argv[2]);
+  string filename;
 
   cout << "Parsing scene file... " << flush;
   Scene *scene = reader.parseScene( filename );
   cout << "done" << endl;
+
+  if(filename.empty()) {
+    cout << "No output filename specified in the scene file. Default filename \""
+	 << DEFAULT_OUTPUT_FILENAME << "\" will be used" << endl;
+    filename = DEFAULT_OUTPUT_FILENAME;
+  }
 
   cout << "Preprocessing the scene... " << flush;
   scene->preprocess();
